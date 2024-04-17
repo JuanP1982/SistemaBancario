@@ -36,4 +36,13 @@ public class Relatorios {
 			System.out.println("Nome:" + cliente.getNome() + " Cpf:" + cliente.getCpf() + " Agencia:" + cliente.getConta().getAgencia());
 		}
 	}
+	
+	public void totalDeCapital(String cpf, Map<String, Usuarios> usuarios, Map<String, Conta> contas) {
+        double total = 0;
+        for(Usuarios usuario : usuarios.values()) {
+            total += usuario.getConta().getSaldo();
+        }
+
+        System.out.println("O total de capital é: "+ total + "\nClientes: " + usuarios.size() );
+    }
 }
