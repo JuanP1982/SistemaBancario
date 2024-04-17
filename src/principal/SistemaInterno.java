@@ -1,15 +1,20 @@
 package principal;
 
+import java.io.IOException;
+
+import menus.MenuTransacoes;
 import menus.Menulogin;
+
 
 public class SistemaInterno {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+
 		Menulogin menulogin = new Menulogin();
-		
+		MenuTransacoes transacoes = new MenuTransacoes();
 		
 		menulogin.menuPrincipal();
-
+		
 	}
 
 //	private static boolean souCliente(String cpf, String senha) {
