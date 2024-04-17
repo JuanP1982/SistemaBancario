@@ -1,9 +1,9 @@
 package contas;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
+import java.io.IOException;
 import java.util.Scanner;
+
+import menus.Menulogin;
 
 public class ContaPoupanca extends Conta {
 
@@ -11,38 +11,41 @@ public class ContaPoupanca extends Conta {
 		super(cpfTitular, saldo, agencia, tipo);
 	}
 
-	  public static void calcularRendimento() {
-		  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/uuuu");
-          Scanner sc = new Scanner(System.in);
+	public static void calcularRendimento(String cpf) {
+        Scanner sc = new Scanner(System.in);
+        Menulogin login = new Menulogin();
+        double valor;
+        long dias;
+        double taxaJurosDiaria = 0.000986;
+        int escolha = 0;
 
-
-          double valor;
-          String dataInicio;
-          String dataFim;
-
-          double taxaJurosDiaria = 0.000986;
-
-          System.out.println("Informe o valor");
-          valor = sc.nextDouble();
-          System.out.println("Informe o dia inicial");
-          dataInicio = sc.next();
-          System.out.println("Informe o dia final");
-          dataFim = sc.next();
-          
-         LocalDate dataInicial = LocalDate.parse(dataInicio, formatter);
-         LocalDate datafinal = LocalDate.parse(dataFim, formatter);
-
-          long dias = ChronoUnit.DAYS.between(dataInicial, datafinal);
-           valor = valor * taxaJurosDiaria * dias;
-           System.out.println(valor);
-	}
+        System.out.println("Informe o valor do investimento:");
+        valor = sc.nextDouble();
+        System.out.println("Informe o número de dias do investimento:");
+        dias = sc.nextLong();
+        double rendimento = (valor * taxaJurosDiaria) * dias + valor;
+        System.out.println("O valor do seu rendimento é " + rendimento + " com taxa de " + "0.000986" + " por dia");
+        System.out.println("Deseja calcular novamente o rendimento?");
+        System.out.println("| 1 - Continuar ou 2 - MenuInicio |");
+        escolha = sc.nextInt();
+		if (escolha == 1) {
+			calcularRendimento(cpf);
+		} else if (escolha == 2) {
+			try {
+				login.menuCliente(cpf);
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+			}
+		} else {
+			System.exit(0); 
+		}
+    }
 
 	@Override
 	public String toString() {
 		return "ContaPoupanca;" + cpfTitular + ";" + saldo + ";"
 				+ agencia + ";" + tipo +";";
 	}
-	
-
 	
 }
