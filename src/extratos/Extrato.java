@@ -69,7 +69,4 @@ public abstract class Extrato {
 		return tipo + ";" + cpfTitular + ";" + valor + ";" + data + ";";
 	}
 
-
-	
-	
 }

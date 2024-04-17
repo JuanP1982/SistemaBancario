@@ -12,14 +12,13 @@ import enums.TransacoesEnum;
 import extratos.Extrato;
 import extratos.ExtratoDepositos;
 import extratos.ExtratoSaques;
+import extratos.ExtratoTransferencias;
 import io.InOutUtils;
 import pessoas.Usuarios;
 
 public class MenuTransacoes {
 	Scanner sc = new Scanner(System.in);
 	static Menulogin login = new Menulogin();
-//	ExtratoTransferencias exTransf = new ExtratoTransferencias();
-//	
 
 	static Map<String, String> TransfMap = new HashMap<>();
 
@@ -96,23 +95,28 @@ public class MenuTransacoes {
 	}
 
 	public void transacao(String cpf, Map<String, Usuarios> usuarios, List<Extrato> extrato) throws IOException {
+		ExtratoTransferencias exTransf = new ExtratoTransferencias(null, null, 0, null, null, null);
 		Usuarios cliente = usuarios.get(cpf);
 		usuarios.get(cpf);
 
-		double valor, valorReceber;
+		double valor;
 		String cpf2;
 
 		System.out.println("Bem vindo ao menu de Transação||Transferencia!");
-		System.out.println("Seu saldo é: " + cliente.getConta().getSaldo());
+		System.out.println("Seu saldo é: " + String.format("%.2f", cliente.getConta().getSaldo()));
 		System.out.println("Escreva o CPF de quem deseja transferir!");
 		cpf2 = sc.next();
 		System.out.println("Quanto deseja transferir?");
 		valor = sc.nextDouble();
 		cliente.getConta().transacaoEnviar(valor);
-		valorReceber = valor;
-		usuarios.get(cpf2).getConta().transacaoReceber(valorReceber);
+		exTransf.setarValores(valor, cpf, LocalDateTime.now(), cpf2);
+		usuarios.get(cpf2).getConta().transacaoReceber(valor);
+
 		InOutUtils.escritorConta("../SistemaBancario/arquivos/contas.txt", (Conta) cliente.getConta(), login.contas);
-		System.out.println("Você transferiu "+ valor + " para "+ usuarios.get(cpf2).getNome());
+		System.out.println(String.format("%.2f", cliente.getConta().getSaldo()));
+		System.out.println(
+				usuarios.get(cpf2).getNome() + String.format("%.2f", usuarios.get(cpf2).getConta().getSaldo()));
+		InOutUtils.escritorExtrato("../SistemaBancario/arquivos/extrato.txt", exTransf, extrato);
 	}
 
 	public void extrato(String cpf, Map<String, Usuarios> usuarios, List<Extrato> extratos) throws IOException {
@@ -149,8 +153,14 @@ public class MenuTransacoes {
 			}
 			break;
 		case 3:
-			// extrato
-
+			for (Extrato extrato : extratos) {
+				if (extrato.getCpfTitular().equals(cpf)
+						&& extrato.getTipo().equalsIgnoreCase(TransacoesEnum.Transferencias.name())) {
+					System.out.println("Tipo: " + extrato.getTipo());
+					System.out.println("Valor: " + extrato.getValor());
+				}
+			}
+			break;
 		}
 
 		System.out.println("1- Continuar | 2- Sair");

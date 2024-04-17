@@ -1,31 +1,46 @@
 package extratos;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-public class ExtratoTransferencias {
-	private String transferencias;
-	private LocalDate data;
-	
-	public ExtratoTransferencias(String transferencias, LocalDate data) {
-		super();
-		this.transferencias = transferencias;
-		this.data = data;
+public class ExtratoTransferencias extends Extrato {
+	private String idTransacao;
+	private String cpfTransferencia;
+
+	public ExtratoTransferencias(String idTransacao, String cpfTitular, double valor, LocalDateTime data, String tipo,
+			String cpfTtransferencias) {
+		super(idTransacao, cpfTitular, valor, data, "Transferencias");
+		this.cpfTransferencia = cpfTransferencia;
+		this.idTransacao = idTransacao;
 	}
 
-	public String getTransferencias() {
-		return transferencias;
+	public String getIdTransacao() {
+		return idTransacao;
 	}
 
-	public void setTransferencias(String transferencias) {
-		this.transferencias = transferencias;
+	public void setIdTransacao(String idTransacao) {
+		this.idTransacao = idTransacao;
 	}
 
-	public LocalDate getData() {
-		return data;
+	public void setarValores(double valor, String cpf, LocalDateTime localDateTime, String cpf2) {
+		setCpfTitular(cpf);
+		setValor(valor * -1);
+		setData(localDateTime);
+		setCpfTransferencia(cpf2);
 	}
 
-	public void setData(LocalDate data) {
-		this.data = data;
+	public String getCpfTransferencia() {
+		return cpfTransferencia;
 	}
-	
+
+	public void setCpfTransferencia(String cpfTransferencia) {
+		this.cpfTransferencia = cpfTransferencia;
+	}
+
+	@Override
+	public String toString() {
+		return "Transferencias;" + cpfTitular + ";" + valor + ";" + data + ";" + idTransacao + ";"
+				+ cpfTransferencia + ";";
+	}
+
 }

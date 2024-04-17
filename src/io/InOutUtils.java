@@ -22,6 +22,7 @@ import enums.TransacoesEnum;
 import extratos.Extrato;
 import extratos.ExtratoDepositos;
 import extratos.ExtratoSaques;
+import extratos.ExtratoTransferencias;
 import pessoas.Cliente;
 import pessoas.Diretor;
 import pessoas.Funcionario;
@@ -29,11 +30,10 @@ import pessoas.Gerente;
 import pessoas.Presidente;
 import pessoas.Usuarios;
 
- 
 public class InOutUtils {
-	 private static int contador = 0;
-	 private static List<Usuarios> listaCliente;
-	 
+	private static int contador = 0;
+	private static List<Usuarios> listaCliente;
+
 	public static void escritorConta(String path, Conta conta, Map<String, Conta> contas) throws IOException {
 		BufferedWriter writer = new BufferedWriter(new FileWriter(path));
 		for (Conta contaPercorre : contas.values()) {
@@ -41,11 +41,8 @@ public class InOutUtils {
 		}
 		writer.close();
 	}
-	 
 
-	 
-	public static void escritorExtrato(String path, Extrato extrato, List<Extrato> extratoMap)
-			throws IOException {
+	public static void escritorExtrato(String path, Extrato extrato, List<Extrato> extratoMap) throws IOException {
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(path, true))) {
 			extrato.setIdTransacao(Integer.toString(contador));
 			writer.write(extrato.toString());
@@ -71,7 +68,7 @@ public class InOutUtils {
 			Map<String, Usuarios> usuarios) throws IOException {
 		BufferedReader buffRead = new BufferedReader(new FileReader(path));
 		String linha = "";
-	    List<Conta> listaContas = new ArrayList<>();
+		List<Conta> listaContas = new ArrayList<>();
 		while (true) {
 			linha = buffRead.readLine();
 			if (linha != null) {
@@ -124,16 +121,16 @@ public class InOutUtils {
 					usuarios.put(pessoas[3], f);
 					listaCliente.add(f);
 //						System.out.println("É Presidente");
-				}else {
+				} else {
 					Cliente c = new Cliente((pessoas[1]), (pessoas[2]), (pessoas[3]), (pessoas[0]));
 					listaCliente.add(c);
 					usuarios.put(pessoas[3], c);
-					
+
 				}
 			} else {
 				break;
 			}
-				
+
 		}
 		buffRead.close();
 		return usuarios;
@@ -150,15 +147,22 @@ public class InOutUtils {
 				String[] extratoV = linha.split(";");
 				Extrato extratos;
 				if (extratoV[0].equalsIgnoreCase(TransacoesEnum.Saques.name())) {
-					extratos = new ExtratoSaques(Integer.toString(contador) ,extratoV[1], (Double.parseDouble(extratoV[2]) * -1),
-						 LocalDateTime.parse(extratoV[3]), extratoV[0]);
+					extratos = new ExtratoSaques(Integer.toString(contador), extratoV[1],
+							(Double.parseDouble(extratoV[2]) * -1), LocalDateTime.parse(extratoV[3]), extratoV[0]);
 					extrato.add(extratos);
 					listaExtrato.add(extratos);
 				} else if (extratoV[0].equalsIgnoreCase(TransacoesEnum.Depositos.name())) {
-					extratos = new ExtratoDepositos(Integer.toString(contador) ,extratoV[1], Double.parseDouble(extratoV[2]),
-							 LocalDateTime.parse(extratoV[3]), extratoV[0]);
+					extratos = new ExtratoDepositos(Integer.toString(contador), extratoV[1],
+							Double.parseDouble(extratoV[2]), LocalDateTime.parse(extratoV[3]), extratoV[0]);
 					extrato.add(extratos);
 					listaExtrato.add(extratos);
+				} else if (extratoV[0].equalsIgnoreCase(TransacoesEnum.Transferencias.name())) {
+					extratos = new ExtratoTransferencias(Integer.toString(contador), extratoV[1],
+							Double.parseDouble(extratoV[2]), LocalDateTime.parse(extratoV[3]), extratoV[0],
+							extratoV[5]);
+					extrato.add(extratos);
+					listaExtrato.add(extratos);
+
 				}
 			} else
 				break;
@@ -167,8 +171,8 @@ public class InOutUtils {
 		buffRead.close();
 		return extrato;
 	}
-	
+
 	public static List<Usuarios> getListaCliente() {
-        return listaCliente;
-    }
+		return listaCliente;
+	}
 }
