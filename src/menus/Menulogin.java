@@ -287,9 +287,9 @@ public class Menulogin {
 				+ " 3- Transação\n        "
 				+ " 4- Simular Rendimento\n        "
 				+ " 5- Extrato\n        "
-				+ " 6- Criar conta\n       "
-				+ "  7- Relatorio de contas\n       "
-				+ "  9- Sair");
+				+ " 6- Criar conta\n        "
+				+ " 7- Relatorio de contas\n        "
+				+ " 9- Sair");
 		int escolha = sc.nextInt();
 		
 		switch(escolha) {
