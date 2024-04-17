@@ -178,7 +178,7 @@ public class Menulogin {
 	            		+ "3- Transação\n        "
 	            		+ "4- Simulador rendimento\n        "
 	            		+ "5- Extrato\n        "
-	            		+ "6- Seguro de vida       "
+	            		+ "6- Seguro de vida\n       "
 	            		+ "9- Sair");
 	        }
 	        int escolha = sc.nextInt();
@@ -207,12 +207,12 @@ public class Menulogin {
 			case 9:
 				menuPrincipal();
 				
-			//case :
-				//menuPrincipal();
 				}
 	}
 
 	public void menuGerente(String cpf) throws IOException {
+		MenuTransacoes menuT = new MenuTransacoes();
+		List<Usuarios> listaClientes = InOutUtils.getListaCliente();
 		Funcionario gerente = (Gerente) usuarios.get(cpf);
 		System.out.println("Bem Vindo " + gerente.getNome());
 		System.out.println("Informações da conta:\n " + gerente.getCargo());
@@ -244,7 +244,7 @@ public class Menulogin {
 					ContaPoupanca.calcularRendimento();
 				
 				case 5:
-					//Extrato();
+					menuT.extrato(cpf, usuarios, extrato);
 					
 				case 6:
 					System.out.println("Qual tipo de conta deseja criar?");
@@ -338,7 +338,9 @@ public class Menulogin {
 	}
 
 	public void menuPresidente(String cpf) throws IOException {
-        Funcionario presidente = (Funcionario) usuarios.get(cpf);
+		MenuTransacoes menuT = new MenuTransacoes();
+		List<Usuarios> listaClientes = InOutUtils.getListaCliente();
+		Funcionario presidente = (Funcionario) usuarios.get(cpf);
         System.out.println("Bem Vindo " + presidente.getNome());
         System.out.println("Cargo de : "+ presidente.getCargo());
         System.out.println("Sua Agência é : " + AgenciaEnum.SANTANDER.getAgencia());
@@ -370,10 +372,10 @@ public class Menulogin {
 			ContaPoupanca.calcularRendimento();
 			
 		case 5:
-			//menuT.extrato(cpf, usuarios);
+			menuT.extrato(cpf, usuarios, extrato);
 		
 		case 6:
-			//Relatorios com nome, cpf,
+			relatorios.clientesOrganiza(listaClientes);
 		
 		case 7:
 			//Relatorio todo capital
@@ -384,8 +386,6 @@ public class Menulogin {
 		case 9:
 			menuPrincipal();
 			
-		//case :
-			//menuPrincipal();
 			}
 	}
 			

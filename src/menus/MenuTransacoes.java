@@ -40,13 +40,21 @@ public class MenuTransacoes {
 		InOutUtils.escritorConta("../SistemaBancario/arquivos/contas.txt", (Conta) cliente.getConta(), login.contas);
 
 		System.out.println("Seu saldo é: " + cliente.getConta().getSaldo());
+		System.out.println("1- Continuar | 2- Sair");
 		int escolha = sc.nextInt();
-		if (escolha == 1) {
-			this.deposito(cpf, extrato);
-		} else if (escolha == 2) {
-			login.menuCliente(cpf);
-		} else {
-			System.exit(0);
+		switch (escolha) {
+		case 1:
+			this.saque(cpf, extrato);
+		case 2:
+			if (login.usuarios.get(cpf).getTipo().equalsIgnoreCase("Cliente")) {
+				login.menuCliente(cpf);
+			} else if (login.usuarios.get(cpf).getTipo().equalsIgnoreCase("Gerente")) {
+				login.menuGerente(cpf);
+			} else if (login.usuarios.get(cpf).getTipo().equalsIgnoreCase("Diretor")) {
+				login.menuDiretor(cpf);
+			} else if (login.usuarios.get(cpf).getTipo().equalsIgnoreCase("Presidente")) {
+				login.menuPresidente(cpf);
+			}
 		}
 
 	}
@@ -104,7 +112,7 @@ public class MenuTransacoes {
 		valorReceber = valor;
 		usuarios.get(cpf2).getConta().transacaoReceber(valorReceber);
 		InOutUtils.escritorConta("../SistemaBancario/arquivos/contas.txt", (Conta) cliente.getConta(), login.contas);
-		System.out.println(usuarios.get(cpf2).getNome() + usuarios.get(cpf2).getConta().getSaldo());
+		System.out.println("Você transferiu "+ valor + " para "+ usuarios.get(cpf2).getNome());
 	}
 
 	public void extrato(String cpf, Map<String, Usuarios> usuarios, List<Extrato> extratos) throws IOException {
@@ -130,23 +138,18 @@ public class MenuTransacoes {
 			}
 			break;
 		case 2:
+			System.out.println("Extratos de Depositos:");
+			for (Extrato extrato : extratos) {
+				if (extrato.getCpfTitular().equals(cpf)
+						&& extrato.getTipo().equalsIgnoreCase(TransacoesEnum.Depositos.name())) {
+					System.out.println("Tipo: " + extrato.getTipo());
+					System.out.println("Valor: " + extrato.getValor());
 
-		case 3:
-			// extratoF
-
-		case 4:
-//			 if (usuarios.containsKey(cpf) && usuarios.get(cpf).getSenha().equals(senha)
-//			 && usuarios.get(cpf).getTipo().equalsIgnoreCase("Cliente")) {
-//			 menuCliente(cpf);
-//			 } else if (usuarios.containsKey(cpf) &&
-//			 usuarios.get(cpf).getSenha().equals(senha)) {
-//			 Funcionario funcionario = (Funcionario) usuarios.get(cpf);
-//			 if (funcionario instanceof Gerente) {
-//			 menuGerente(cpf);
-//			 }
-//			 }
-		default:
+				}
+			}
 			break;
+		case 3:
+			// extrato
 
 		}
 
