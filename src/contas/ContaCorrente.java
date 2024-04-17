@@ -1,20 +1,14 @@
 package contas;
 
 public class ContaCorrente extends Conta {
-	private String tipo;
 
 	public ContaCorrente(String cpfTitular, double saldo, int agencia, String tipo) {
-		super(cpfTitular, saldo, agencia);
-		this.tipo = tipo;
+		super(cpfTitular, saldo, agencia, tipo);
 	}
 
-	public String getTipo() {
-		return tipo;
+	@Override
+	public String toString() {
+		return "ContaCorrente;" + cpfTitular + ";" + saldo + ";" + agencia + ";" + tipo + ";";
 	}
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
-	
-	
 }
