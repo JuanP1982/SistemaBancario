@@ -94,7 +94,7 @@ public class MenuTransacoes {
 
 	}	
 
-	public void transacao(String cpf, Map<String, Usuarios> usuarios, List<Extrato> extrato) throws IOException {
+	public void transferencia(String cpf, Map<String, Usuarios> usuarios, List<Extrato> extrato) throws IOException {
 		ExtratoTransferencias exTransf = new ExtratoTransferencias(null, null, 0, null, null, null);
 		Usuarios cliente = usuarios.get(cpf);
 		usuarios.get(cpf);
@@ -123,7 +123,6 @@ public class MenuTransacoes {
 		Usuarios cliente = usuarios.get(cpf);
 		usuarios.get(cpf);
 		int escolha = 0;
-		System.out.println(extratos);
 		System.out.println("        Bem-vindo ao menu de extrato");
 		System.out.println("        Qual extrato você que ver?\n        " + " 1- Saques\n        "
 				+ " 2- Depositos\n        " + " 3- Transferências\n        " + " 4- Sair");
