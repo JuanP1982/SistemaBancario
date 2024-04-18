@@ -44,6 +44,7 @@ public class MenuTransacoes {
 		switch (escolha) {
 		case 1:
 			this.saque(cpf, extrato);
+			break;
 		case 2:
 			if (login.usuarios.get(cpf).getTipo().equalsIgnoreCase("Cliente")) {
 				login.menuCliente(cpf);
@@ -54,8 +55,8 @@ public class MenuTransacoes {
 			} else if (login.usuarios.get(cpf).getTipo().equalsIgnoreCase("Presidente")) {
 				login.menuPresidente(cpf);
 			}
+			break;
 		}
-
 	}
 
 	public void deposito(String cpf, List<Extrato> extrato) throws IOException {
@@ -80,6 +81,7 @@ public class MenuTransacoes {
 		switch (escolha) {
 		case 1:
 			this.deposito(cpf, extrato);
+			break;
 		case 2:
 			if (login.usuarios.get(cpf).getTipo().equalsIgnoreCase("Cliente")) {
 				login.menuCliente(cpf);
@@ -89,7 +91,7 @@ public class MenuTransacoes {
 				login.menuDiretor(cpf);
 			} else if (login.usuarios.get(cpf).getTipo().equalsIgnoreCase("Presidente")) {
 				login.menuPresidente(cpf);
-			}
+			}break;
 		}
 
 	}
@@ -121,6 +123,7 @@ public class MenuTransacoes {
 		switch (escolha2) {
 		case 1:
 			this.transferencia(cpf, usuarios, extrato);
+			break;
 		case 2:
 			if (usuarios.get(cpf).getTipo().equalsIgnoreCase("Cliente")) {
 				login.menuCliente(cpf);
@@ -130,7 +133,7 @@ public class MenuTransacoes {
 				login.menuDiretor(cpf);
 			} else if (usuarios.get(cpf).getTipo().equalsIgnoreCase("Presidente")) {
 				login.menuPresidente(cpf);
-			}
+			}break;
 		}
 	}
 
@@ -183,6 +186,7 @@ public class MenuTransacoes {
 		switch (escolha2) {
 		case 1:
 			this.extrato(cpf, usuarios, extratos);
+			break;
 		case 2:
 			if (usuarios.get(cpf).getTipo().equalsIgnoreCase("Cliente")) {
 				login.menuCliente(cpf);
@@ -192,7 +196,7 @@ public class MenuTransacoes {
 				login.menuDiretor(cpf);
 			} else if (usuarios.get(cpf).getTipo().equalsIgnoreCase("Presidente")) {
 				login.menuPresidente(cpf);
-			}
+			}break;
 		}
 	}
 

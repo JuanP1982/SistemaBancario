@@ -231,19 +231,19 @@ public class Menulogin {
 
 		case 1:
 			transacoes.saque(cpf, extrato);
-
+			break;
 		case 2:
 			transacoes.deposito(cpf, extrato);
-
+			break;
 		case 3:
 			transacoes.transferencia(cpf, usuarios, extrato);
-
+			break;
 		case 4:
 			ContaPoupanca.calcularRendimento(cpf, usuarios);
-
+			break;
 		case 5:
 			transacoes.extrato(cpf, usuarios, extrato);
-
+			break;
 		case 6:
 			System.out.println("Qual tipo de conta deseja criar?");
 			int tipoconta = sc.nextInt();
@@ -264,16 +264,17 @@ public class Menulogin {
 			} else {
 				System.out.println(corVermelha + "XXXXXXXXXXXXXXX Inválido XXXXXXXXXXXXXXXX" + resetCor);
 			}
-
+			break;
 		case 7:
 
 			relatorios.clientesAgencia(cpf, usuarios, contas);
-			
+			break;
 		case 8:
 			relatorios.totalTributacao(cpf, usuarios);
-
+			break;
 		case 9:
 			menuPrincipal();
+			break;
 		}
 	}
 
@@ -293,19 +294,19 @@ public class Menulogin {
 
 		case 1:
 			transacoes.saque(cpf, extrato);
-
+			break;
 		case 2:
 			transacoes.deposito(cpf, extrato);
-
+			break;
 		case 3:
 			transacoes.transferencia(cpf, usuarios, extrato);
-
+			break;
 		case 4:
 			ContaPoupanca.calcularRendimento(cpf, usuarios);
-
+			break;
 		case 5:
 			menuT.extrato(cpf, usuarios, extrato);
-
+			break;
 		case 6:
 			System.out.println("Qual tipo de conta deseja criar?");
 			int tipoconta = sc.nextInt();
@@ -326,12 +327,13 @@ public class Menulogin {
 			} else {
 				System.out.println(corVermelha + "XXXXXXXXXXXXXXX Inválido XXXXXXXXXXXXXXXX" + resetCor);
 			}
-
+			break;
 		case 7:
 			relatorios.clientesOrganiza(listaClientes);
-
+			break;
 		case 9:
 			menuPrincipal();
+			break;
 		}
 	}
 
@@ -353,34 +355,34 @@ public class Menulogin {
 
 		case 1:
 			transacoes.saque(cpf, extrato);
-
+			break;
 		case 2:
 			transacoes.deposito(cpf, extrato);
-
+			break;
 		case 3:
 			transacoes.transferencia(cpf, usuarios, extrato);
-
+			break;
 		case 4:
 			ContaPoupanca.calcularRendimento(cpf, usuarios);
-
+			break;
 		case 5:
 			transacoes.extrato(cpf, usuarios, extrato);
-
+			break;
 		case 6:
 			relatorios.clientesOrganiza(listaClientes);
-
+			break;
 		case 7:
 			relatorios.totalDeCapital(cpf, usuarios, contas);
-
+			break;
 		case 8:
 			transacoes.Seguro(cpf, usuarios);
-		
+			break;
 		case 9:
 			relatorios.totalTributacao(cpf, usuarios);
-			
+			break;
 		case 10:
 			menuPrincipal();
-
+			break;
 		}
 	}
 
