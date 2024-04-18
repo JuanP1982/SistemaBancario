@@ -193,7 +193,7 @@ public class MenuTransacoes {
 		System.out.println("Gostaria de fazer um seguro ?");
 		System.out.println("Digite 1 para SIM ou 2 para NÃO !");
 		double valorcon = 5000 * 0.20;
-		double novoSaldo = cliente.getConta().getSaldo() - valorcon;
+		double novoSaldo = (cliente.getConta().getSaldo() - valorcon);
 		int escolha = sc.nextInt();
 		if (escolha == 1) {
 			if (cliente.getConta().getSaldo() < valorcon)

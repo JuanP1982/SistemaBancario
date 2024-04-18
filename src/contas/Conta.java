@@ -76,12 +76,12 @@ public abstract class Conta {
 	}
 
 	public void saque(Double sacar) {
-		 this.saldo -= sacar -(-0.1) ;
+		 this.saldo -= sacar - (-0.10) ;
 		 this.total += 0.10;
 	}
 	
 	public void deposito(Double deposito) {
-        this.saldo += deposito - (-0.1);
+        this.saldo += deposito - (+0.10);
         this.total += 0.10;
 	}
 }
