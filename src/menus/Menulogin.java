@@ -197,7 +197,7 @@ public class Menulogin {
 			transacoes.deposito(cpf, extrato);
 
 		case 3:
-			transacoes.transacao(cpf, usuarios, extrato);
+			transacoes.transferencia(cpf, usuarios, extrato);
 
 		case 4:
 			ContaPoupanca.calcularRendimento(cpf);
@@ -236,7 +236,7 @@ public class Menulogin {
 			transacoes.deposito(cpf, extrato);
 
 		case 3:
-			transacoes.transacao(cpf, usuarios, extrato);
+			transacoes.transferencia(cpf, usuarios, extrato);
 
 		case 4:
 			ContaPoupanca.calcularRendimento(cpf);
@@ -298,7 +298,7 @@ public class Menulogin {
 			transacoes.deposito(cpf, extrato);
 
 		case 3:
-			transacoes.transacao(cpf, usuarios, extrato);
+			transacoes.transferencia(cpf, usuarios, extrato);
 
 		case 4:
 			ContaPoupanca.calcularRendimento(cpf);
@@ -358,7 +358,7 @@ public class Menulogin {
 			transacoes.deposito(cpf, extrato);
 
 		case 3:
-			transacoes.transacao(cpf, usuarios, extrato);
+			transacoes.transferencia(cpf, usuarios, extrato);
 
 		case 4:
 			ContaPoupanca.calcularRendimento(cpf);

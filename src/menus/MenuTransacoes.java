@@ -94,7 +94,7 @@ public class MenuTransacoes {
 
 	}
 
-	public void transacao(String cpf, Map<String, Usuarios> usuarios, List<Extrato> extrato) throws IOException {
+	public void transferencia(String cpf, Map<String, Usuarios> usuarios, List<Extrato> extrato) throws IOException {
 		ExtratoTransferencias exTransf = new ExtratoTransferencias(null, null, 0, null, null, null);
 		Usuarios cliente = usuarios.get(cpf);
 		usuarios.get(cpf);
@@ -115,7 +115,7 @@ public class MenuTransacoes {
 		InOutUtils.escritorConta("../SistemaBancario/arquivos/contas.txt", (Conta) cliente.getConta(), login.contas);
 		System.out.println(String.format("%.2f", cliente.getConta().getSaldo()));
 		System.out.println(
-				usuarios.get(cpf2).getNome() + String.format("%.2f", usuarios.get(cpf2).getConta().getSaldo()));
+				usuarios.get(cpf2).getNome() + " " + String.format("%.2f", usuarios.get(cpf2).getConta().getSaldo()));
 		InOutUtils.escritorExtrato("../SistemaBancario/arquivos/extrato.txt", exTransf, extrato);
 	}
 
