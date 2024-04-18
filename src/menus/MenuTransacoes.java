@@ -68,7 +68,7 @@ public class MenuTransacoes {
 	        login.menuPrincipal();
 	        
 	    } catch (InputMismatchException e) {
-	    	System.err.println("Você não pode sacar este valor, cobramos uma taxa de 0.10 para saques!");
+	    	System.err.println("Você não pode sacar este valor, cobramos uma taxa de 0.10 para saques!!");
 	    	login.menuPrincipal();
 	    }
 
