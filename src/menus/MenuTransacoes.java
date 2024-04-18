@@ -114,8 +114,7 @@ public class MenuTransacoes {
 
 		InOutUtils.escritorConta("../SistemaBancario/arquivos/contas.txt", (Conta) cliente.getConta(), login.contas);
 		System.out.println(String.format("%.2f", cliente.getConta().getSaldo()));
-		System.out.println(
-				usuarios.get(cpf2).getNome() + " " + String.format("%.2f", usuarios.get(cpf2).getConta().getSaldo()));
+		System.out.println("Você transferiu o valor de "+ valor + " spara  " + usuarios.get(cpf2).getNome());
 		InOutUtils.escritorExtrato("../SistemaBancario/arquivos/extrato.txt", exTransf, extrato);
 	}
 

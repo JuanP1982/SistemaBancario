@@ -61,7 +61,7 @@ public abstract class Conta {
 	}
 	
 	public void transacaoEnviar(Double enviar) {
-        this.saldo -= (enviar - 0.20);
+        this.saldo -= enviar - ( - 0.20);
         this.total += 0.20;
    }
 
