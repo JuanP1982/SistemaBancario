@@ -11,7 +11,7 @@ public class ContaPoupanca extends Conta {
 		super(cpfTitular, saldo, agencia, tipo);
 	}
 
-	public static void calcularRendimento(String cpf) {
+	public static void calcularRendimento(String cpf) throws IOException {
         Scanner sc = new Scanner(System.in);
         Menulogin login = new Menulogin();
         double valor;
@@ -26,21 +26,24 @@ public class ContaPoupanca extends Conta {
         double rendimento = (valor * taxaJurosDiaria) * dias + valor;
         System.out.println("O valor do seu rendimento é " + rendimento + " com taxa de " + "0.000986" + " por dia");
         System.out.println("Deseja calcular novamente o rendimento?");
-        System.out.println("| 1 - Continuar ou 2 - MenuInicio |");
-        escolha = sc.nextInt();
-		if (escolha == 1) {
+        System.out.println("1- Continuar | 2- Sair");
+		int escolha1 = sc.nextInt();
+		switch (escolha) {
+		case 1:
 			calcularRendimento(cpf);
-		} else if (escolha == 2) {
-			try {
+		case 2:
+			if (login.usuarios.get(cpf).getTipo().equalsIgnoreCase("Cliente")) {
 				login.menuCliente(cpf);
-			} catch (IOException e) {
-				
-				e.printStackTrace();
+			} else if (login.usuarios.get(cpf).getTipo().equalsIgnoreCase("Gerente")) {
+				login.menuGerente(cpf);
+			} else if (login.usuarios.get(cpf).getTipo().equalsIgnoreCase("Diretor")) {
+				login.menuDiretor(cpf);
+			} else if (login.usuarios.get(cpf).getTipo().equalsIgnoreCase("Presidente")) {
+				login.menuPresidente(cpf);
 			}
-		} else {
-			System.exit(0); 
 		}
-    }
+
+	}
 
 	@Override
 	public String toString() {

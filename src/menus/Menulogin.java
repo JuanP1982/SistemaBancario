@@ -25,7 +25,7 @@ import relatorios.Relatorios;
 
 public class Menulogin {
 	static Map<String, Conta> contas = new LinkedHashMap<>();
-    static Map<String, Usuarios> usuarios = new HashMap<>();
+    public static Map<String, Usuarios> usuarios = new HashMap<>();
     static List<Extrato>extrato = new ArrayList<>();
 
     Scanner sc = new Scanner(System.in);
@@ -182,36 +182,34 @@ public class Menulogin {
 	            		+ "9- Sair");
 	        }
 	        int escolha = sc.nextInt();
-	        MenuTransacoes menuT = new MenuTransacoes();
 	        System.out.println("Bem Vindo " + cliente.getNome());
 	        switch(escolha) {
 		
 			case 1: 
 				transacoes.saque(cpf, extrato);
-		
+				break;
 			case 2:
 				transacoes.deposito(cpf, extrato);
-				
+				break;
 			case 3:
 				transacoes.transacao(cpf, usuarios, extrato);
-				
+				break;
 			case 4:	
 				ContaPoupanca.calcularRendimento(cpf);
-				
+				break;
 			case 5:
-				menuT.extrato(cpf, usuarios, extrato);
-				
+				transacoes.extrato(cpf, usuarios, extrato);
+				break;
 			case 6:	
 				transacoes.Seguro(cpf, usuarios);
-			
+				break;
 			case 9:
 				menuPrincipal();
-				
+				break;
 				}
 	}
 
 	public void menuGerente(String cpf) throws IOException {
-		MenuTransacoes menuT = new MenuTransacoes();
 		List<Usuarios> listaClientes = InOutUtils.getListaCliente();
 		Funcionario gerente = (Gerente) usuarios.get(cpf);
 		System.out.println("Bem Vindo " + gerente.getNome());
@@ -233,19 +231,19 @@ public class Menulogin {
 		
 				case 1: 
 					transacoes.saque(cpf, extrato);
-		
+					break;
 				case 2:
 					transacoes.deposito(cpf, extrato);
-				
+					break;
 				case 3:
 					transacoes.transacao(cpf, usuarios, extrato);
-				
+					break;
 				case 4: 
 					ContaPoupanca.calcularRendimento(cpf);
-				
+					break;
 				case 5:
-					menuT.extrato(cpf, usuarios, extrato);
-					
+					transacoes.extrato(cpf, usuarios, extrato);
+					break;
 				case 6:
 					System.out.println("Qual tipo de conta deseja criar?");
 					int tipoconta = sc.nextInt();
@@ -265,20 +263,19 @@ public class Menulogin {
 					} else {
 						System.out.println(corVermelha+"XXXXXXXXXXXXXXX Inválido XXXXXXXXXXXXXXXX"+resetCor);
 					}
-				
+					break;
 				case 7:
-					
 					relatorios.clientesAgencia(cpf, usuarios,contas);
-					
+					break;
 				case 9:
 					menuPrincipal();
+					break;
 		}
 	}
 
 	public void menuDiretor(String cpf) throws IOException {
 		List<Usuarios> listaClientes = InOutUtils.getListaCliente();
 		Funcionario diretor = (Funcionario) usuarios.get(cpf);
-		MenuTransacoes menuT = new MenuTransacoes();
 		System.out.println("Bem Vindo " + diretor.getNome());
 		System.out.println("Cargo de :" + diretor.getCargo());
 		System.out.println("        Digite a ação que deseja efetuar\n        "
@@ -296,19 +293,19 @@ public class Menulogin {
 		
 			case 1: 
 				transacoes.saque(cpf, extrato);
-		
+				break;
 			case 2:
 				transacoes.deposito(cpf, extrato);
-				
+				break;
 			case 3:
 				transacoes.transacao(cpf, usuarios, extrato);
-				
+				break;
 			case 4: 
 				ContaPoupanca.calcularRendimento(cpf);
-				
+				break;
 			case 5:
-				menuT.extrato(cpf, usuarios, extrato);
-				
+				transacoes.extrato(cpf, usuarios, extrato);
+				break;
 			case 6:
 				System.out.println("Qual tipo de conta deseja criar?");
 				int tipoconta = sc.nextInt();
@@ -331,14 +328,13 @@ public class Menulogin {
 				
 			case 7:
 				relatorios.clientesOrganiza(listaClientes);
-			
+				break;
 			case 9:
 				menuPrincipal();
 		}
 	}
 
 	public void menuPresidente(String cpf) throws IOException {
-		MenuTransacoes menuT = new MenuTransacoes();
 		List<Usuarios> listaClientes = InOutUtils.getListaCliente();
 		Funcionario presidente = (Funcionario) usuarios.get(cpf);
         System.out.println("Bem Vindo " + presidente.getNome());
@@ -361,31 +357,31 @@ public class Menulogin {
 		
 		case 1: 
 			transacoes.saque(cpf, extrato);
-	
+			break;
 		case 2:
 			transacoes.deposito(cpf, extrato);
-			
+			break;
 		case 3:
 			transacoes.transacao(cpf, usuarios, extrato);
-			
+			break;
 		case 4:	
 			ContaPoupanca.calcularRendimento(cpf);
-			
+			break;
 		case 5:
-			menuT.extrato(cpf, usuarios, extrato);
-		
+			transacoes.extrato(cpf, usuarios, extrato);
+			break;
 		case 6:
 			relatorios.clientesOrganiza(listaClientes);
-		
+			break;
 		case 7:
-			//Relatorio todo capital
-			
+			relatorios.totalDeCapital(cpf, usuarios, contas);
+			break;
 		case 8:	
 			transacoes.Seguro(cpf, usuarios);
-		
+			break;
 		case 9:
 			menuPrincipal();
-			
+			break;
 			}
 	}
 			

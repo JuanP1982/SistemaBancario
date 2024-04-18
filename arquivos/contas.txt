@@ -1,4 +1,6 @@
 ContaCorrente;321;1500.0;1;ContaCorrente;
-ContaPoupanca;4321;1500.0;2;ContaPoupanca;
+ContaPoupanca;4321;1000.2;2;ContaPoupanca;
 ContaPoupanca;21;1000.0;2;ContaPoupanca;
-ContaPoupanca;544;900.4000000000001;2;ContaPoupanca;
+ContaPoupanca;544;1400.4;2;ContaPoupanca;
+ContaPoupanca;599;1500.2;2;ContaPoupanca;
+ContaPoupanca;777;1500.2;2;ContaPoupanca;
