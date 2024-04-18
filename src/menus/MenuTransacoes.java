@@ -52,6 +52,7 @@ public class MenuTransacoes {
 		switch (escolha) {
 		case 1:
 			this.saque(cpf, extrato);
+			break;
 		case 2:
 			if (login.usuarios.get(cpf).getTipo().equalsIgnoreCase("Cliente")) {
 				login.menuCliente(cpf);
@@ -62,15 +63,24 @@ public class MenuTransacoes {
 			} else if (login.usuarios.get(cpf).getTipo().equalsIgnoreCase("Presidente")) {
 				login.menuPresidente(cpf);
 			}
-		} } catch (SaqueNegativoException e) {
-	        // Lidar com a exceção SaqueNegativoException
-	        System.err.println("Você não pode sacar um valor maior que seu saldo!");
-	        login.menuPrincipal();
-	        
-	    } catch (InputMismatchException e) {
-	    	System.err.println("Você não pode sacar este valor, cobramos uma taxa de 0.10 para saques!!");
-	    	login.menuPrincipal();
-	    }
+
+			break;
+		}
+
+		} catch(
+
+	SaqueNegativoException e)
+	{
+		// Lidar com a exceção SaqueNegativoException
+		System.err.println("Você não pode sacar um valor maior que seu saldo!");
+		login.menuPrincipal();
+
+	}catch(
+	InputMismatchException e)
+	{
+		System.err.println("Você não pode sacar este valor, cobramos uma taxa de 0.10 para saques!!");
+		login.menuPrincipal();
+	}
 
 	}
 
@@ -104,6 +114,7 @@ public class MenuTransacoes {
 		switch (escolha) {
 		case 1:
 			this.deposito(cpf, extrato);
+			break;
 		case 2:
 			if (login.usuarios.get(cpf).getTipo().equalsIgnoreCase("Cliente")) {
 				login.menuCliente(cpf);
@@ -113,13 +124,19 @@ public class MenuTransacoes {
 				login.menuDiretor(cpf);
 			} else if (login.usuarios.get(cpf).getTipo().equalsIgnoreCase("Presidente")) {
 				login.menuPresidente(cpf);
-			}
-		} } catch (IllegalArgumentException e) {
-	        // Lidar com a exceção de valor negativo ou zero
-	        System.err.println(e.getMessage());
-	        // Chamar o método deposito() novamente se necessário
-	        this.deposito(cpf, extrato);
-	    }
+
+			}break;
+		}
+
+			
+		}catch(
+
+	IllegalArgumentException e){
+	// Lidar com a exceção de valor negativo ou zero
+	System.err.println(e.getMessage());
+	// Chamar o método deposito() novamente se necessário
+	this.deposito(cpf,extrato);
+	}
 
 	}
 
@@ -160,6 +177,7 @@ public class MenuTransacoes {
 		switch (escolha2) {
 		case 1:
 			this.transferencia(cpf, usuarios, extrato);
+			break;
 		case 2:
 			if (usuarios.get(cpf).getTipo().equalsIgnoreCase("Cliente")) {
 				login.menuCliente(cpf);
@@ -169,13 +187,19 @@ public class MenuTransacoes {
 				login.menuDiretor(cpf);
 			} else if (usuarios.get(cpf).getTipo().equalsIgnoreCase("Presidente")) {
 				login.menuPresidente(cpf);
-			}
-		} } catch (IllegalArgumentException e) {
-	        // Lidar com a exceção de valor negativo ou zero
-	        System.err.println(e.getMessage());
-	        
-	        
-	    }
+
+			}break;
+		}
+
+			
+		}catch(
+
+	IllegalArgumentException e){
+	// Lidar com a exceção de valor negativo ou zero
+	System.err.println(e.getMessage());
+
+	}
+
 	}
 
 	public void extrato(String cpf, Map<String, Usuarios> usuarios, List<Extrato> extratos) throws IOException {
@@ -198,7 +222,8 @@ public class MenuTransacoes {
 					System.out.println("Valor: " + extrato.getValor());
 
 				}
-			} System.err.println("Não foram encontrados saques neste Cpf!");
+			}
+			System.err.println("Não foram encontrados saques neste Cpf!");
 			break;
 		case 2:
 			System.out.println("Extratos de Depositos:");
@@ -209,29 +234,30 @@ public class MenuTransacoes {
 					System.out.println("Valor: " + extrato.getValor());
 
 				}
-			} System.err.println("Não foram encontrados depositos neste Cpf!");
+			}
+			System.err.println("Não foram encontrados depositos neste Cpf!");
 			break;
 		case 3:
-			
+
 			for (Extrato extrato : extratos) {
 				if (extrato.getCpfTitular().equals(cpf)
-					&& extrato.getTipo().equalsIgnoreCase(TransacoesEnum.Transferencias.name())) {
+						&& extrato.getTipo().equalsIgnoreCase(TransacoesEnum.Transferencias.name())) {
 					System.out.println("Tipo: " + extrato.getTipo());
 					System.out.println("Valor: " + extrato.getValor());
-				} 
-					
-				} System.err.println("Não foram encontradas tranferências neste Cpf!");
-			
+				}
+
+			}
+			System.err.println("Não foram encontradas tranferências neste Cpf!");
+
 			break;
-			} 
-			
-			
+		}
 
 		System.out.println("1- Continuar | 2- Sair");
 		int escolha2 = sc.nextInt();
 		switch (escolha2) {
 		case 1:
 			this.extrato(cpf, usuarios, extratos);
+			break;
 		case 2:
 			if (usuarios.get(cpf).getTipo().equalsIgnoreCase("Cliente")) {
 				login.menuCliente(cpf);
@@ -242,6 +268,7 @@ public class MenuTransacoes {
 			} else if (usuarios.get(cpf).getTipo().equalsIgnoreCase("Presidente")) {
 				login.menuPresidente(cpf);
 			}
+			break;
 		}
 	}
 
@@ -261,7 +288,7 @@ public class MenuTransacoes {
 		int escolha = sc.nextInt();
 		if (escolha == 1) {
 			if (cliente.getConta().getSaldo() < valorcon)
-			System.out.println("Saldo insuficiente para adesão de plano.");
+				System.out.println("Saldo insuficiente para adesão de plano.");
 			login.menuCliente(cpf);
 			cliente.getConta().setSaldo(novoSaldo);
 		} else if (escolha == 2) {
