@@ -45,7 +45,7 @@ public class ContaPoupanca extends Conta {
 	@Override
 	public String toString() {
 		return "ContaPoupanca;" + cpfTitular + ";" + saldo + ";"
-				+ agencia + ";" + tipo +";";
+				+ agencia + ";" + tipo + ";" + total +";";
 	}
 	
 }

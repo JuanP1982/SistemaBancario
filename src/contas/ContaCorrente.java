@@ -8,7 +8,7 @@ public class ContaCorrente extends Conta {
 
 	@Override
 	public String toString() {
-		return "ContaCorrente;" + cpfTitular + ";" + saldo + ";" + agencia + ";" + tipo + ";";
+		return "ContaCorrente;" + cpfTitular + ";" + saldo + ";" + agencia + ";" + tipo +";"+ total + ";";
 	}
 
 }

@@ -123,7 +123,7 @@ public class MenuTransacoes {
 		Usuarios cliente = usuarios.get(cpf);
 		usuarios.get(cpf);
 		int escolha = 0;
-
+		System.out.println(extratos);
 		System.out.println("        Bem-vindo ao menu de extrato");
 		System.out.println("        Qual extrato você que ver?\n        " + " 1- Saques\n        "
 				+ " 2- Depositos\n        " + " 3- Transferências\n        " + " 4- Sair");

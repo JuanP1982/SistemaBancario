@@ -169,7 +169,7 @@ public class InOutUtils {
 			contador++;
 		}
 		buffRead.close();
-		return extrato;
+		return listaExtrato;
 	}
 
 	public static List<Usuarios> getListaCliente() {
