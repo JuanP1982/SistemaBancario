@@ -267,6 +267,9 @@ public class Menulogin {
 		case 7:
 
 			relatorios.clientesAgencia(cpf, usuarios, contas);
+			
+		case 8:
+//			relatorios.totalTributacao(cpf, usuarios);
 
 		case 9:
 			menuPrincipal();
@@ -342,7 +345,7 @@ public class Menulogin {
 		System.out.println("        Digite a ação que deseja efetuar\n        " + " 1- Saque\n        "
 				+ " 2- Deposito\n        " + " 3- Transação\n        " + " 4- Simular Rendimento\n        "
 				+ " 5- Extrato\n        " + " 6- Relatorios de Contas\n       " + " 7- Relatorio valor capital\n       "
-				+ " 8- Seguro de Vida\n       " + " 9- Sair");
+				+ " 8- Seguro de Vida\n       " + " 9- Total tributacao\n      " + "10- Sair\n      ");
 		int escolha = sc.nextInt();
 
 		switch (escolha) {
@@ -370,8 +373,11 @@ public class Menulogin {
 
 		case 8:
 			transacoes.Seguro(cpf, usuarios);
-
+		
 		case 9:
+//			relatorios.totalTributacao(cpf, usuarios);
+			
+		case 10:
 			menuPrincipal();
 
 		}

@@ -79,6 +79,8 @@ public class InOutUtils {
 					usuarios.get(contasV[1]).setConta(conta);
 					Usuarios c = usuarios.get(contasV[1]);
 					c.setConta(conta);
+					c.getConta().setTotal(Double.parseDouble(contasV[5]));;
+					contas.put(contasV[1], conta);
 					contas.put(contasV[1], conta);
 
 				} else if (contasV[0].equalsIgnoreCase(ContaBancariaEnum.ContaCorrente.name())) {
@@ -88,6 +90,7 @@ public class InOutUtils {
 					usuarios.get(contasV[1]).setConta(conta);
 					Usuarios c = usuarios.get(contasV[1]);
 					c.setConta(conta);
+					c.getConta().setTotal(Double.parseDouble(contasV[5]));;
 					contas.put(contasV[1], conta);
 				}
 			} else
