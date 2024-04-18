@@ -25,7 +25,7 @@ import relatorios.Relatorios;
 
 public class Menulogin {
 	static Map<String, Conta> contas = new LinkedHashMap<>();
-	static Map<String, Usuarios> usuarios = new HashMap<>();
+	public static Map<String, Usuarios> usuarios = new HashMap<>();
 	static List<Extrato> extrato = new ArrayList<>();
 
 	Scanner sc = new Scanner(System.in);

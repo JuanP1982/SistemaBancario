@@ -1,6 +1,0 @@
-Gerente;Juan;123;321;Gerente;1
-Gerente;Rodrigo;123;4321;Gerente;2
-Diretor;Eduardo;123;21;Diretor
-Cliente;RodrigoJusten;123;544;
-Cliente;testando;testando;testando;
-Cliente;testando1;testando1;testando1;
