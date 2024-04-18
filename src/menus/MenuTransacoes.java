@@ -196,6 +196,9 @@ public class MenuTransacoes {
 		double novoSaldo = cliente.getConta().getSaldo() - valorcon;
 		int escolha = sc.nextInt();
 		if (escolha == 1) {
+			if (cliente.getConta().getSaldo() < valorcon)
+			System.out.println("Saldo insuficiente para adesão de plano");
+			login.menuCliente(cpf);
 			cliente.getConta().setSaldo(novoSaldo);
 		} else if (escolha == 2) {
 			login.menuCliente(cpf);

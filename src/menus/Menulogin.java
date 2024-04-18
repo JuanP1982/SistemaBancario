@@ -178,12 +178,13 @@ public class Menulogin {
 		Usuarios cliente = (Cliente) usuarios.get(cpf);
 		System.out.println("      Bem Vindo " + cliente.getNome());
 		if (cliente.getConta().getTipo().equalsIgnoreCase(ContaBancariaEnum.ContaCorrente.name())) {
-			System.out.println("      Digite a ação que deseja efetuar\n      " + "1- Saque\n      "
-					+ "2- Deposito\n      " + "3- Transação\n      " + "9- Sair");
+			System.out.println("      Digite a ação que deseja efetuar\n        " + "1- Saque\n        "
+			+ "2- Deposito\n        " + "3- Transação\n        " + "4- Simulador rendimento\n        "
+			+ "5- Extrato\n        " + "6- Seguro de vida\n         " + "9- Sair");
 		} else if (cliente.getConta().getTipo().equalsIgnoreCase(ContaBancariaEnum.ContaPoupanca.name())) {
 			System.out.println("        Digite a ação que deseja efetuar\n        " + "1- Saque\n        "
 					+ "2- Deposito\n        " + "3- Transação\n        " + "4- Simulador rendimento\n        "
-					+ "5- Extrato\n        " + "6- Seguro de vida\n       " + "9- Sair");
+					+ "5- Extrato\n        " + "6- Seguro de vida\n     " + "9- Sair");
 		}
 		int escolha = sc.nextInt();
 		System.out.println("Bem Vindo " + cliente.getNome());
