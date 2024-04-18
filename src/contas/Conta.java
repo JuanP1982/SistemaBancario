@@ -21,6 +21,10 @@ public abstract class Conta {
 	public double getTotal() {
 		return total;
 	}
+	
+	public void setTotal(double total) {
+		this.total = total;
+	}
 
 
 	public String getCpfTitular() {

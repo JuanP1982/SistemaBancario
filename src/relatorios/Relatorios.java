@@ -49,6 +49,6 @@ public class Relatorios {
 	
 	public void totalTributacao(String cpf, Map<String, Usuarios> usuarios) {
 		Usuarios cliente = usuarios.get(cpf);
-		System.out.println(cliente.getConta().getTotal());
+		System.out.println("O total Tributado foi: " +cliente.getConta().getTotal());
 	}	
 }
