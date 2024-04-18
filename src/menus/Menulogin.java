@@ -92,11 +92,11 @@ public class Menulogin {
 
 		if (tipoconta == 1) {
 			System.out.println(
-					"  /\\   /\\                                                                                     /\\   /\\");
+			corVerde+"  /\\   /\\                                                                                     /\\   /\\");
 			System.out.println(
 					" /  \\ /  \\                                                                                   /  \\ /  \\");
 			System.out.println(
-					"|    V    |  Agradecemos o seu registro no Banco ResidenciaSeu saldo inicial é : R$ 1000    |    V    |");
+					"|    V    |              Agradecemos o seu registro no Banco Residencia                     |    V    |");
 			System.out.println(
 					" \\       /                       Seu saldo inicial é : R$ 1000                               \\       /");
 			System.out.println(
@@ -104,7 +104,7 @@ public class Menulogin {
 			System.out.println(
 					"   \\   /                                                                                       \\   /");
 			System.out.println(
-					"    \\ /                                                                                         \\ /");
+					"    \\ /                                                                                         \\ /" + resetCor);
 			ContaCorrente Corrente = new ContaCorrente(cpf, 1000, 1, ContaBancariaEnum.ContaCorrente.name());
 			cliente.setConta(Corrente);
 			usuarios.put(cliente.getCpf(), cliente);
@@ -115,11 +115,11 @@ public class Menulogin {
 		else if (tipoconta == 2) {
 
 			System.out.println(
-					"  /\\   /\\                                                                                     /\\   /\\");
+	        corVerde+"  /\\   /\\                                                                                     /\\   /\\");
 			System.out.println(
 					" /  \\ /  \\                                                                                   /  \\ /  \\");
 			System.out.println(
-					"|    V    |  Agradecemos o seu registro no Banco ResidenciaSeu saldo inicial é : R$ 1000    |    V    |");
+					"|    V    |              Agradecemos o seu registro no Banco Residencia                     |    V    |");
 			System.out.println(
 					" \\       /                       Seu saldo inicial é : R$ 1000                               \\       /");
 			System.out.println(
@@ -127,7 +127,7 @@ public class Menulogin {
 			System.out.println(
 					"   \\   /                                                                                       \\   /");
 			System.out.println(
-					"    \\ /                                                                                         \\ /");
+					"    \\ /                                                                                         \\ /"+ resetCor);
 			ContaPoupanca Poupanca = new ContaPoupanca(cliente.getCpf(), 1000, 2,
 					ContaBancariaEnum.ContaPoupanca.name());
 			cliente.setConta(Poupanca);
