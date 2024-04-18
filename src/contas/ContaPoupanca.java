@@ -1,9 +1,11 @@
 package contas;
 
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
+import customexceptions.ValorNegativoException;
 import menus.Menulogin;
 import pessoas.Usuarios;
 
@@ -20,9 +22,16 @@ public class ContaPoupanca extends Conta {
         long dias;
         double taxaJurosDiaria = 0.000986;
         int escolha = 0;
-
+        
+        try {
+        	
+        
         System.out.println("Informe o valor do investimento:");
         valor = sc.nextDouble();
+        if (valor < 0) {
+        	throw new ValorNegativoException("O valor do investimento não pode ser negativo!");
+        }
+        
         System.out.println("Informe o número de dias do investimento:");
         dias = sc.nextLong();
         double rendimento = (valor * taxaJurosDiaria) * dias + valor;
@@ -43,8 +52,15 @@ public class ContaPoupanca extends Conta {
 			} else if (login.usuarios.get(cpf).getTipo().equalsIgnoreCase("Presidente")) {
 				login.menuPresidente(cpf);
 			}
-		}
-
+		} } catch (InputMismatchException e) {
+	        // Lidar com a exceção de valor negativo ou zero
+	        System.err.println("Você não pode digitar letras!");
+	        // Chamar o método deposito() novamente se necessário
+	        
+	    } catch (ValorNegativoException e) {
+	        System.err.println("Você não pode informar um valor negativo!");
+	        
+	    }
 	}
 
 	@Override
