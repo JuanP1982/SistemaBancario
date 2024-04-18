@@ -6,6 +6,7 @@ import java.util.Map;
 
 import contas.Conta;
 import enums.AgenciaEnum;
+import pessoas.Cliente;
 import pessoas.Gerente;
 import pessoas.Usuarios;
 
@@ -45,4 +46,9 @@ public class Relatorios {
 
         System.out.println("O total de capital é: "+ total + "\nClientes: " + usuarios.size() );
     }
+	
+	public void totalTributacao(String cpf, Map<String, Usuarios> usuarios) {
+		Usuarios cliente = usuarios.get(cpf);
+		System.out.println(cliente.getConta().getTotal());
+	}	
 }

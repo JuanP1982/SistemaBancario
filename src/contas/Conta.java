@@ -5,6 +5,7 @@ public abstract class Conta {
 	protected double saldo;
 	protected int agencia;
 	protected String tipo;
+	protected double total;
 	
 
 	public Conta(String cpfTitular, double saldo, int agencia, String tipo) {
@@ -15,6 +16,12 @@ public abstract class Conta {
 		this.tipo = tipo;
 		
 	}
+	
+
+	public double getTotal() {
+		return total;
+	}
+
 
 	public String getCpfTitular() {
 		return cpfTitular;
@@ -51,6 +58,7 @@ public abstract class Conta {
 	
 	public void transacaoEnviar(Double enviar) {
         this.saldo -= (enviar - 0.20);
+        this.total += 0.20;
    }
 
     public void transacaoReceber(Double receber) {
@@ -60,14 +68,16 @@ public abstract class Conta {
 	
 	@Override
 	public String toString() {
-		return tipo +";" + cpfTitular + ";" + saldo + ";" + agencia + ";";
+		return tipo +";" + cpfTitular + ";" + saldo + ";" + agencia +";"+ total +";";
 	}
 
 	public void saque(Double sacar) {
-		 this.saldo -= sacar ;
+		 this.saldo -= sacar -(-0.1) ;
+		 this.total += 0.10;
 	}
 	
 	public void deposito(Double deposito) {
-        this.saldo += deposito;
+        this.saldo += deposito - (-0.1);
+        this.total += 0.10;
 	}
 }

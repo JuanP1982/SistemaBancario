@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 public class ExtratoSaques extends Extrato {
-	    String idTransacao;
+	   private String idTransacao;
 	public ExtratoSaques(String idTransacao, String cpfTitular, double valor, LocalDateTime data, String tipo) {
 		super(idTransacao, cpfTitular, valor * -1, data, "Saques");
 		this.idTransacao = idTransacao;
