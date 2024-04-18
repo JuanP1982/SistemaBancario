@@ -1,11 +1,1 @@
-Gerente;Juan;123;321;Gerente;1
-Gerente;Rodrigo;123;4321;Gerente;2
-Diretor;Eduardo;123;21;Diretor
-Cliente;RodrigoJusten;123;544;
-<<<<<<< HEAD
-Cliente;Rodrigo;123;599;
-Presidente;Ed;123;777;Presidente;
-=======
-Cliente;testando;testando;testando;
-Cliente;testando1;testando1;testando1;
->>>>>>> 148b8f283b472e9aa4a528194308ac65aceda058
+Cliente;rodrigo;123;555;

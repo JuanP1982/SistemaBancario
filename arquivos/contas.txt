@@ -1,15 +1,1 @@
-<<<<<<< HEAD
-ContaCorrente;321;1500.0;1;ContaCorrente;
-ContaPoupanca;4321;1000.2;2;ContaPoupanca;
-ContaPoupanca;21;1000.0;2;ContaPoupanca;
-ContaPoupanca;544;1400.4;2;ContaPoupanca;
-ContaPoupanca;599;1500.2;2;ContaPoupanca;
-ContaPoupanca;777;1500.2;2;ContaPoupanca;
-=======
-ContaCorrente;321;870.0999999999999;1;ContaCorrente;0.0;
-ContaPoupanca;4321;1500.0;2;ContaPoupanca;0.0;
-ContaPoupanca;21;1200.0;2;ContaPoupanca;0.0;
-ContaPoupanca;544;900.4000000000001;2;ContaPoupanca;0.0;
-ContaPoupanca;testando;1000.0;2;ContaPoupanca;0.0;
-ContaCorrente;testando1;1000.0;1;ContaCorrente;0.0;
->>>>>>> 148b8f283b472e9aa4a528194308ac65aceda058
+ContaPoupanca;555;0.0;2;ContaPoupanca;0.0;
