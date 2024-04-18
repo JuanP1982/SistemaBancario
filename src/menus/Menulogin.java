@@ -81,7 +81,8 @@ public class Menulogin {
 		String cpf = sc.next();
 		if (usuarios.containsKey(cpf)) {
 			System.out.println(corVermelha + "XXXXXXXXXXXXXXX CPF já existente XXXXXXXXXXXXXXXX" + resetCor);
-			System.exit(0);
+			menuPrincipal();;
+			;
 		}
 		cliente.setCpf(cpf);
 		cliente.setTipo("Cliente");
@@ -179,11 +180,11 @@ public class Menulogin {
 		System.out.println("      Bem Vindo " + cliente.getNome());
 		if (cliente.getConta().getTipo().equalsIgnoreCase(ContaBancariaEnum.ContaCorrente.name())) {
 			System.out.println("      Digite a ação que deseja efetuar\n        " + "1- Saque\n        "
-			+ "2- Deposito\n        " + "3- Transação\n        " + "4- Simulador rendimento\n        "
+			+ "2- Deposito\n        " + "3- Transferências\n        " + "4- Simulador rendimento\n        "
 			+ "5- Extrato\n        " + "6- Seguro de vida\n         " + "9- Sair");
 		} else if (cliente.getConta().getTipo().equalsIgnoreCase(ContaBancariaEnum.ContaPoupanca.name())) {
 			System.out.println("        Digite a ação que deseja efetuar\n        " + "1- Saque\n        "
-					+ "2- Deposito\n        " + "3- Transação\n        " + "4- Simulador rendimento\n        "
+					+ "2- Deposito\n        " + "3- Transferências\n        " + "4- Simulador rendimento\n        "
 					+ "5- Extrato\n        " + "6- Seguro de vida\n        " + "9- Sair");
 		}
 		int escolha = sc.nextInt();
@@ -222,7 +223,7 @@ public class Menulogin {
 		System.out.println("Informações da conta:\n " + AgenciaEnum.SANTANDER.name());
 		System.out.println(
 				"        Digite a ação que deseja efetuar:\n        " + " 1- Saque\n        " + " 2- Deposito\n        "
-						+ " 3- Transação\n        " + " 4- Simular Rendimento\n        " + " 5- Extrato\n        "
+						+ " 3- Transferências\n        " + " 4- Simular Rendimento\n        " + " 5- Extrato\n        "
 						+ " 6- Criar conta\n        " + " 7- Relatorios de Contas\n        " + " 9- Sair");
 
 		int escolha = sc.nextInt();
@@ -285,7 +286,7 @@ public class Menulogin {
 		System.out.println("Cargo de :" + diretor.getCargo());
 		System.out.println(
 				"        Digite a ação que deseja efetuar\n        " + " 1- Saque\n        " + " 2- Deposito\n        "
-						+ " 3- Transação\n        " + " 4- Simular Rendimento\n        " + " 5- Extrato\n        "
+						+ " 3- Transferências\n        " + " 4- Simular Rendimento\n        " + " 5- Extrato\n        "
 						+ " 6- Criar conta\n       " + "  7- Relatorio de contas\n       " + "  9- Sair");
 		int escolha = sc.nextInt();
 
@@ -344,7 +345,7 @@ public class Menulogin {
 		System.out.println("Sua Agência é : " + AgenciaEnum.SANTANDER.getAgencia());
 		visualizarNumeroClientes();
 		System.out.println("        Digite a ação que deseja efetuar\n        " + " 1- Saque\n        "
-				+ " 2- Deposito\n        " + " 3- Transação\n        " + " 4- Simular Rendimento\n        "
+				+ " 2- Deposito\n        " + " 3- Transferências\n        " + " 4- Simular Rendimento\n        "
 				+ " 5- Extrato\n        " + " 6- Relatorios de Contas\n       " + " 7- Relatorio valor capital\n       "
 				+ " 8- Seguro de Vida\n       " + " 9- Total tributacao\n      " + "10- Sair\n      ");
 		int escolha = sc.nextInt();
