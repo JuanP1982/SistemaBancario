@@ -1,9 +1,11 @@
 package contas;
 
 import java.io.IOException;
+import java.util.Map;
 import java.util.Scanner;
 
 import menus.Menulogin;
+import pessoas.Usuarios;
 
 public class ContaPoupanca extends Conta {
 
@@ -11,7 +13,7 @@ public class ContaPoupanca extends Conta {
 		super(cpfTitular, saldo, agencia, tipo);
 	}
 
-	public static void calcularRendimento(String cpf) throws IOException {
+	public static void calcularRendimento(String cpf, Map<String, Usuarios> usuarios) throws IOException {
         Scanner sc = new Scanner(System.in);
         Menulogin login = new Menulogin();
         double valor;
@@ -28,9 +30,9 @@ public class ContaPoupanca extends Conta {
         System.out.println("Deseja calcular novamente o rendimento?");
         System.out.println("1- Continuar | 2- Sair");
 		int escolha1 = sc.nextInt();
-		switch (escolha) {
+		switch (escolha1) {
 		case 1:
-			calcularRendimento(cpf);
+			calcularRendimento(cpf, usuarios);
 		case 2:
 			if (login.usuarios.get(cpf).getTipo().equalsIgnoreCase("Cliente")) {
 				login.menuCliente(cpf);

@@ -184,7 +184,7 @@ public class Menulogin {
 		} else if (cliente.getConta().getTipo().equalsIgnoreCase(ContaBancariaEnum.ContaPoupanca.name())) {
 			System.out.println("        Digite a ação que deseja efetuar\n        " + "1- Saque\n        "
 					+ "2- Deposito\n        " + "3- Transação\n        " + "4- Simulador rendimento\n        "
-					+ "5- Extrato\n        " + "6- Seguro de vida\n     " + "9- Sair");
+					+ "5- Extrato\n        " + "6- Seguro de vida\n        " + "9- Sair");
 		}
 		int escolha = sc.nextInt();
 		System.out.println("Bem Vindo " + cliente.getNome());
@@ -192,25 +192,25 @@ public class Menulogin {
 
 		case 1:
 			transacoes.saque(cpf, extrato);
-
+			break;
 		case 2:
 			transacoes.deposito(cpf, extrato);
-
+			break;
 		case 3:
 			transacoes.transferencia(cpf, usuarios, extrato);
-
+			break;
 		case 4:
-			ContaPoupanca.calcularRendimento(cpf);
-
+			ContaPoupanca.calcularRendimento(cpf, usuarios);
+			break;
 		case 5:
 			transacoes.extrato(cpf, usuarios, extrato);
-
+			break;
 		case 6:
 			transacoes.Seguro(cpf, usuarios);
-
+			break;
 		case 9:
 			menuPrincipal();
-
+			break;
 		}
 	}
 
@@ -239,7 +239,7 @@ public class Menulogin {
 			transacoes.transferencia(cpf, usuarios, extrato);
 
 		case 4:
-			ContaPoupanca.calcularRendimento(cpf);
+			ContaPoupanca.calcularRendimento(cpf, usuarios);
 
 		case 5:
 			transacoes.extrato(cpf, usuarios, extrato);
@@ -270,7 +270,7 @@ public class Menulogin {
 			relatorios.clientesAgencia(cpf, usuarios, contas);
 			
 		case 8:
-//			relatorios.totalTributacao(cpf, usuarios);
+			relatorios.totalTributacao(cpf, usuarios);
 
 		case 9:
 			menuPrincipal();
@@ -301,7 +301,7 @@ public class Menulogin {
 			transacoes.transferencia(cpf, usuarios, extrato);
 
 		case 4:
-			ContaPoupanca.calcularRendimento(cpf);
+			ContaPoupanca.calcularRendimento(cpf, usuarios);
 
 		case 5:
 			menuT.extrato(cpf, usuarios, extrato);
@@ -361,7 +361,7 @@ public class Menulogin {
 			transacoes.transferencia(cpf, usuarios, extrato);
 
 		case 4:
-			ContaPoupanca.calcularRendimento(cpf);
+			ContaPoupanca.calcularRendimento(cpf, usuarios);
 
 		case 5:
 			transacoes.extrato(cpf, usuarios, extrato);
@@ -376,7 +376,7 @@ public class Menulogin {
 			transacoes.Seguro(cpf, usuarios);
 		
 		case 9:
-//			relatorios.totalTributacao(cpf, usuarios);
+			relatorios.totalTributacao(cpf, usuarios);
 			
 		case 10:
 			menuPrincipal();

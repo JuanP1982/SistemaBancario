@@ -114,8 +114,24 @@ public class MenuTransacoes {
 
 		InOutUtils.escritorConta("../SistemaBancario/arquivos/contas.txt", (Conta) cliente.getConta(), login.contas);
 		System.out.println(String.format("%.2f", cliente.getConta().getSaldo()));
-		System.out.println("Você transferiu o valor de "+ valor + " spara  " + usuarios.get(cpf2).getNome());
+		System.out.println("Você transferiu o valor de "+ valor + " para  " + usuarios.get(cpf2).getNome());
 		InOutUtils.escritorExtrato("../SistemaBancario/arquivos/extrato.txt", exTransf, extrato);
+		System.out.println("1- Continuar | 2- Sair");
+		int escolha2 = sc.nextInt();
+		switch (escolha2) {
+		case 1:
+			this.transferencia(cpf, usuarios, extrato);
+		case 2:
+			if (usuarios.get(cpf).getTipo().equalsIgnoreCase("Cliente")) {
+				login.menuCliente(cpf);
+			} else if (usuarios.get(cpf).getTipo().equalsIgnoreCase("Gerente")) {
+				login.menuGerente(cpf);
+			} else if (usuarios.get(cpf).getTipo().equalsIgnoreCase("Diretor")) {
+				login.menuDiretor(cpf);
+			} else if (usuarios.get(cpf).getTipo().equalsIgnoreCase("Presidente")) {
+				login.menuPresidente(cpf);
+			}
+		}
 	}
 
 	public void extrato(String cpf, Map<String, Usuarios> usuarios, List<Extrato> extratos) throws IOException {
