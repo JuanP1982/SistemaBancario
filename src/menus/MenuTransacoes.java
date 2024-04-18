@@ -202,7 +202,7 @@ public class MenuTransacoes {
 					System.out.println("Valor: " + extrato.getValor());
 
 				}
-			} System.err.println("Não foram encontrados saques neste Cpf!");
+			} 
 			break;
 		case 2:
 			System.out.println("Extratos de Depositos:");
@@ -213,7 +213,7 @@ public class MenuTransacoes {
 					System.out.println("Valor: " + extrato.getValor());
 
 				}
-			} System.err.println("Não foram encontrados depositos neste Cpf!");
+			} 
 			break;
 		case 3:
 			
@@ -224,7 +224,7 @@ public class MenuTransacoes {
 					System.out.println("Valor: " + extrato.getValor());
 				} 
 					
-				} System.err.println("Não foram encontradas tranferências neste Cpf!");
+				} 
 			
 			break;
 			} 
