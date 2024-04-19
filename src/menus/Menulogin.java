@@ -70,6 +70,7 @@ public class Menulogin {
 	}
 
 	public void registro() throws IOException {
+		List<Usuarios> listaClientes = InOutUtils.getListaCliente();
 		Cliente cliente = new Cliente(null, null, null, null);
 		System.out.println("Digite o seu nome: ");
 		cliente.setNome(sc.next());
@@ -109,6 +110,7 @@ public class Menulogin {
 			cliente.setConta(Corrente);
 			usuarios.put(cliente.getCpf(), cliente);
 			contas.put(cpf, Corrente);
+			listaClientes.add(cliente);
 			InOutUtils.escritorConta(caminhoConta, Corrente, contas);
 		}
 
@@ -134,6 +136,7 @@ public class Menulogin {
 			cliente.getConta().setSaldo(1000);
 			usuarios.put(cpf, cliente);
 			contas.put(cpf, Poupanca);
+			listaClientes.add(cliente);
 			InOutUtils.escritorConta(caminhoConta, Poupanca, contas);
 		} else {
 			System.out.println(corVermelha + "XXXXXXXXXXXXXXX Inválido XXXXXXXXXXXXXXXX" + resetCor);
