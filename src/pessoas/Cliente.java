@@ -9,6 +9,11 @@ public class Cliente extends Usuarios{
 	
 	
 
+	public Cliente() {
+		super();
+	}
+
+
 	public Cliente(String nome, String senha, String cpf, String tipo) {
 		super(nome, senha, cpf, tipo);
 		this.conta = conta;

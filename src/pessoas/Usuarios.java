@@ -9,6 +9,12 @@ public abstract class Usuarios implements Comparable<Usuarios> {
 	protected Conta conta;
 	protected String tipo;
 	
+	
+	
+	public Usuarios() {
+		super();
+	}
+
 	public String getTipo() {
 		return tipo;
 	}

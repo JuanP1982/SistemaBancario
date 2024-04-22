@@ -8,6 +8,13 @@ public abstract class Conta {
 	protected double total;
 	
 
+	
+	
+	public Conta() {
+		super();
+	}
+
+
 	public Conta(String cpfTitular, double saldo, int agencia, String tipo) {
 		super();
 		this.cpfTitular = cpfTitular;

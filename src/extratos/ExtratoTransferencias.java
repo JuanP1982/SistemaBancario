@@ -7,6 +7,12 @@ public class ExtratoTransferencias extends Extrato {
 	private String idTransacao;
 	private String cpfTransferencia;
 
+	
+	
+	public ExtratoTransferencias() {
+		super();
+	}
+
 	public ExtratoTransferencias(String idTransacao, String cpfTitular, double valor, LocalDateTime data, String tipo,
 			String cpfTtransferencias) {
 		super(idTransacao, cpfTitular, valor, data, "Transferencias");

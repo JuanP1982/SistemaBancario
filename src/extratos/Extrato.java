@@ -10,6 +10,12 @@ public abstract class Extrato {
 	protected LocalDateTime data;
 	protected String tipo;
 	
+	
+	
+	public Extrato() {
+		super();
+	}
+
 	public Extrato(String idTransacao, String cpfTitular, double valor, LocalDateTime data, String tipo) {
 		super();
 		this.cpfTitular = cpfTitular;

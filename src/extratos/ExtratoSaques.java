@@ -7,6 +7,13 @@ import java.util.UUID;
 
 public class ExtratoSaques extends Extrato {
 	   private String idTransacao;
+	
+	   
+	   
+	   public ExtratoSaques() {
+		super();
+	}
+
 	public ExtratoSaques(String idTransacao, String cpfTitular, double valor, LocalDateTime data, String tipo) {
 		super(idTransacao, cpfTitular, valor * -1, data, "Saques");
 		this.idTransacao = idTransacao;

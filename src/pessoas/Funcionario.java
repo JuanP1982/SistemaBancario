@@ -9,6 +9,12 @@ public abstract class Funcionario extends Usuarios{
 	protected Conta conta;
 
 
+	
+	
+	public Funcionario() {
+		super();
+	}
+
 	public Funcionario(String nome, String senha, String cpf, String cargo, String tipo) {
 		super(nome, senha, cpf, tipo);
 		this.cargo = cargo;

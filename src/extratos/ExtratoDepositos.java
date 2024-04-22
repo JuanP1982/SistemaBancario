@@ -7,6 +7,12 @@ import java.util.UUID;
 
 public class ExtratoDepositos extends Extrato {
 
+	
+	
+	public ExtratoDepositos() {
+		super();
+	}
+
 	public ExtratoDepositos(String idTransacao, String cpfTitular, double valor, LocalDateTime data, String tipo) {
 		super(idTransacao, cpfTitular, valor, data, "Depositos");
 		

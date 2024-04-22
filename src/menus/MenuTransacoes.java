@@ -25,7 +25,7 @@ public class MenuTransacoes {
 	static Map<String, String> TransfMap = new HashMap<>();
 
 	public void saque(String cpf, List<Extrato> extrato) throws IOException {
-		ExtratoSaques exSaque = new ExtratoSaques(null, null, 0, null, "Saque");
+		ExtratoSaques exSaque = new ExtratoSaques();
 		Usuarios cliente = login.usuarios.get(cpf);
 
 		System.out.println("Bem vindo ao menu de saque!");
@@ -80,7 +80,7 @@ public class MenuTransacoes {
 	}
 
 	public void deposito(String cpf, List<Extrato> extrato) throws IOException {
-		ExtratoDepositos exDeposito = new ExtratoDepositos(null, null, 0, null, null);
+		ExtratoDepositos exDeposito = new ExtratoDepositos();
 		Usuarios cliente = login.usuarios.get(cpf);
 		login.usuarios.get(cpf);
 
@@ -131,7 +131,7 @@ public class MenuTransacoes {
 
 	public void transferencia(String cpf, Map<String, Usuarios> usuarios, List<Extrato> extrato)
 			throws IOException, IllegalArgumentException {
-		ExtratoTransferencias exTransf = new ExtratoTransferencias(null, null, 0, null, null, null);
+		ExtratoTransferencias exTransf = new ExtratoTransferencias();
 		Usuarios cliente = usuarios.get(cpf);
 		usuarios.get(cpf);
 
